@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EasyBroker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<h1 align="center">Bienes Raíces</h1>
+	<h2 align="center">Casas,Departamentos,Venta, Renta y más...</h2>
+	<h3 align="center">Encuentra la tuya</h3>
+	<table border=1 align="center">
+		<thead>
+			<tr>
+				<th style="width:50px; text-align: center;">ID</th>
+				<th style="width:50px; text-align: center;">BIEN INMUEBLE</th>
+				<th style="width:100px;text-align: center;">URL</th>
+				<th style="width:400px; text-align: center;">DESCRIPCIÓN</th>
+				<th style="text-align: center;">TIPO</th>
+				<th style="text-align: center;">AGENCIA</th>
+				<th style="text-align: center;">PRECIO</th>
+				<th style="text-align: center;">METROS</th>
+				<th style="text-align: center;">RECAMARAS</th>
+				<th style="text-align: center;">BAÑOS</th>
+				<th style="width:350px; text-align: center;">UBICACIÓN</th>
+				<th style="text-align: center;">FECHA/HORA</th>
+				<th style="text-align: center;">FOTOS</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% count = 1 %>
+			<% @page.each do |a| %>
+			<tr>
+				<td><%= a.xpath('id').text %></td>
+				<td><%= a.xpath('property_type').text %></td>
+				<td><%= a.xpath('url').text %></td>
+				<td><%= a.xpath('content').text %></td>
+				<td><%= a.xpath('type').text %></td>
+				<td><%= a.xpath('agency').text %></td>
+				<td><%= a.xpath('price').text %></td>
+				<td><%= a.xpath('floor_area').text %></td>
+				<td><%= a.xpath('rooms').text %></td>
+				<td><%= a.xpath('bathrooms').text %></td>
+				<td><%= a.xpath('city_area').text %> <%= a.xpath('city').text %> <%= a.xpath('region').text %> <%= a.xpath('longitude').text %> <%= a.xpath('latitude').text %></td>
+				<td><%= a.xpath('date').text %> <%= a.xpath('time').text %></td>
+				<td><button type="button" data-toggle="modal" data-target="#myModal<%= count %>">Ver Fotos</button>				
+					<div class="modal fade" id="myModal<%= count %>" role="">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+								<div class="modal-body">
+									<% a.xpath('pictures/picture').each do |p| %>
+									<img src="<%= p.xpath('picture_url').text %>"> 
+									<% end %>
+								</div> 
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<% count = count + 1 %>
+			<% end %>
+		</tbody>
+	</table>
+	<%= will_paginate @page%>
+</body>
+</html>
+
