@@ -36,18 +36,18 @@
 			<% count = 1 %>
 			<% @page.each do |a| %>
 			<tr>
-				<td><%= a.xpath('id').text %></td>
-				<td><%= a.xpath('property_type').text %></td>
-				<td><%= a.xpath('url').text %></td>
-				<td><%= a.xpath('content').text %></td>
-				<td><%= a.xpath('type').text %></td>
-				<td><%= a.xpath('agency').text %></td>
-				<td><%= a.xpath('price').text %></td>
-				<td><%= a.xpath('floor_area').text %></td>
-				<td><%= a.xpath('rooms').text %></td>
-				<td><%= a.xpath('bathrooms').text %></td>
-				<td><%= a.xpath('city_area').text %> <%= a.xpath('city').text %> <%= a.xpath('region').text %> <%= a.xpath('longitude').text %> <%= a.xpath('latitude').text %></td>
-				<td><%= a.xpath('date').text %> <%= a.xpath('time').text %></td>
+				<td><%= a.identificador %></td>
+				<td><%= a.bien %></td>
+				<td><%= a.url %></td>
+				<td><%= a.descripcion %></td>
+				<td><%= a.tipo %></td>
+				<td><%= a.agencia %></td>
+				<td><%= a.precio %></td>
+				<td><%= a.metros %></td>
+				<td><%= a.recamaras %></td>
+				<td><%= a.baños %></td>
+				<td><%= a.ubicacion %></td>
+				<td><%= a.fecha %></td>
 				<td><button type="button" data-toggle="modal" data-target="#myModal<%= count %>">Ver Fotos</button>				
 					<div class="modal fade" id="myModal<%= count %>" role="">
 						<div class="modal-dialog modal-lg">
@@ -56,9 +56,9 @@
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 								</div>
 								<div class="modal-body">
-									<% a.xpath('pictures/picture').each do |p| %>
-									<img src="<%= p.xpath('picture_url').text %>"> 
-									<% end %>
+									<% eval(a.fotos).each do |p| %>
+									<img src="<%= p %>"> 
+									<% end %>	
 								</div> 
 							</div>
 						</div>
