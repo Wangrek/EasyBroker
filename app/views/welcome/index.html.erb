@@ -6,28 +6,35 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 </head>
 
 <body>
-	<h1 align="center">Bienes Raíces</h1>
-	<h2 align="center">Casas,Departamentos,Venta, Renta y más...</h2>
-	<h3 align="center">Encuentra la tuya</h3>
-	<table border=1 align="center">
+	<div class="w3-container w3-gray">
+		<h1 style="text-shadow:1px 1px 0 #444" align="center">Bienes Raíces</h1>
+	</div>
+	<div class="w3-container w3-center w3-animate-left">
+		<h2  class="w3-text-cyan" align="center">Casas,Departamentos,Venta, Renta y más...</h2>
+	</div>
+	<div class="w3-container w3-center w3-animate-zoom">
+		<h3 class="w3-text-cyan" align="center">Encuentra la tuya</h3>
+	</div>
+	<table class="w3-table-all w3-hoverable" align="center">
 		<thead>
 			<tr>
-				<th style="width:50px; text-align: center;">ID</th>
-				<th style="width:50px; text-align: center;">BIEN INMUEBLE</th>
-				<th style="width:100px;text-align: center;">URL</th>
-				<th style="width:400px; text-align: center;">DESCRIPCIÓN</th>
+				<th style="text-align: center;">ID</th>
+				<th style="text-align: center;">BIEN INMUEBLE</th>
+				<th style="text-align: center;">URL</th>
+				<th style="text-align: center;">DESCRIPCIÓN</th>
 				<th style="text-align: center;">TIPO</th>
 				<th style="text-align: center;">AGENCIA</th>
 				<th style="text-align: center;">PRECIO</th>
 				<th style="text-align: center;">METROS</th>
 				<th style="text-align: center;">RECAMARAS</th>
 				<th style="text-align: center;">BAÑOS</th>
-				<th style="width:350px; text-align: center;">UBICACIÓN</th>
+				<th style="text-align: center;">UBICACIÓN</th>
 				<th style="text-align: center;">FECHA/HORA</th>
 				<th style="text-align: center;">FOTOS</th>
 			</tr>
@@ -48,14 +55,15 @@
 				<td><%= a.baños %></td>
 				<td><%= a.ubicacion %></td>
 				<td><%= a.fecha %></td>
-				<td><button type="button" data-toggle="modal" data-target="#myModal<%= count %>">Ver Fotos</button>				
+				<!-- Botón que abre modal para pintar las fotos consultando la url guardada en un array en la bd. -->
+				<td><button class="w3-button w3-black w3-round-large w3-hover-cyan" type="button" data-toggle="modal" data-target="#myModal<%= count %>">Ver Fotos</button>				
 					<div class="modal fade" id="myModal<%= count %>" role="">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 								</div>
-								<div class="modal-body">
+								<div class="modal-body" align="center">
 									<% eval(a.fotos).each do |p| %>
 									<img src="<%= p %>"> 
 									<% end %>	
@@ -69,7 +77,8 @@
 			<% end %>
 		</tbody>
 	</table>
-	<%= will_paginate @page%>
+	<div align="center">
+		<%= will_paginate @page%>
+	</div>
 </body>
 </html>
-

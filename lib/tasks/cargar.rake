@@ -5,17 +5,21 @@ require 'nokogiri'
 namespace :cargar do
 	task :xml => :environment do
 		@page = []
-		doc = Nokogiri::XML(File.open("trovit_MX.xml"))
-
+		
+		# Setea el campo publicar, de todos los registros en la bd igual a true, a falso, para despublicarlos.
 		Anuncio.where(publicar: true).update_all(publicar: false)
 
-
+		# Parsea las propiedades del XML.
+		doc = Nokogiri::XML(File.open("trovit_MX.xml"))
 		doc.xpath('//ad').each do |ad_element|
+			
+			# Parsea fotos del XML
 			pictures = []		
 			ad_element.xpath('pictures/picture').each do |pics|
 				pictures.push(pics.xpath('picture_url').text) 
 			end
 			
+			# Llena tabla anuncios de la bd con base en los datos parseados del XML.
 			Anuncio.create(
 				:identificador => ad_element.xpath('id').text,
 				:bien => ad_element.xpath('property_type').text,

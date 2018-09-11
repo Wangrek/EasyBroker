@@ -63,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'will_paginate'
 gem 'whenever', require: false
 gem 'rake'
+gem 'will_paginate-bootstrap4'

@@ -21,6 +21,8 @@
 env :PATH, ENV['PATH']
 set :output, 'log/cron.log'
 
+# Se deja configurada la ejecución del rake cada minuto para efectos de prueba, pero se deja comentado el requerimiento de la prueba de cada 8 horas.
+# every 8.hours do
 every 1.minute do
 	rake "cargar:xml"
 end

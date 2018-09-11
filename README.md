@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# EasyBroker
 
-Things you may want to cover:
+## Prerrequisitos
 
-* Ruby version
+* Ruby 2.3.1p112
+* Rails 5.2.1
+* Gemas: will_paginate, rake y whenever ya agregadas en el GEmfile
 
-* System dependencies
+## Instalación
 
-* Configuration
+* git clone https://github.com/Wangrek/EasyBroker.git
+* cd EasyBroker/
+* bundle install
+* rake db:migrate
 
-* Database creation
+## Levantar proyecto
 
-* Database initialization
+* Correr el siguiente comando desde consola para levantar el scheduler:
+	whenever --update-crontab --set environment='development' 
 
-* How to run the test suite
+NOTA: Se deja configurada la ejecución del proceso de actualización cada minuto para efectos de prueba, pero se deja comentado el requerimiento de cada 8 horas en
+	  el archivo config/schedule.rb
 
-* Services (job queues, cache servers, search engines, etc.)
+* Levanatar server con nohup:
+	nohup rails s &
 
-* Deployment instructions
+* Abrir la siguiente url en el navegador:
+	http://localhost:3000/
 
-* ...
+El archivo XML se encuentra dentro de la raíz del proyecto por si se desean hacer cambios dentro de este.
