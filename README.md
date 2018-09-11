@@ -20,6 +20,9 @@
 * Correr el siguiente comando desde consola para levantar el scheduler:
 	whenever --update-crontab --set environment='development' 
 
+* Ver los procesos en ejecución:
+	crontab -l
+
 NOTA: Se deja configurada la ejecución del proceso de actualización cada minuto para efectos de prueba, pero se deja comentado el requerimiento de cada 8 horas en
 	  el archivo config/schedule.rb
 
@@ -30,3 +33,11 @@ NOTA: Se deja configurada la ejecución del proceso de actualización cada minut
 	http://localhost:3000/
 
 El archivo XML se encuentra dentro de la raíz del proyecto por si se desean hacer cambios dentro de este.
+
+
+## Bajar proyecto
+
+* Borrar los procesos en ejecución del scheduler:
+	crontab -r
+
+* Bajar el server: Buscar proceso de ruby y matarlo.
