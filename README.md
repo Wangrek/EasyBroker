@@ -6,7 +6,7 @@
 
 * Ruby 2.3.1p112
 * Rails 5.2.1
-* Gemas: will_paginate, rake y whenever ya agregadas en el GEmfile
+* Gemas: will_paginate, rake y whenever ya agregadas en el Gemfile
 
 ## Instalación
 
