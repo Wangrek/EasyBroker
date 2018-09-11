@@ -32,7 +32,11 @@ NOTA: Se deja configurada la ejecución del proceso de actualización cada minut
 * Abrir la siguiente url en el navegador:
 	http://localhost:3000/
 
-El archivo XML se encuentra dentro de la raíz del proyecto por si se desean hacer cambios dentro de este.
+## IMPORTANTE
+
+* El archivo XML se encuentra dentro de la raíz del proyecto por si se desean hacer cambios dentro de este.
+* Se utilizó la base de datos development.sqlite3 que viene cargada en rails.
+* Habrá que esperar un minuto para poder visualizar los datos, debido a que el proceso que lee el xml se corre cada minuto para efecto de las pruebas, y después  actualizar la página.
 
 
 ## Bajar proyecto
