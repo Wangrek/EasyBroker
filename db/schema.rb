@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_034838) do
+ActiveRecord::Schema.define(version: 2018_09_11_164826) do
 
   create_table "anuncios", force: :cascade do |t|
     t.string "identificador"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_034838) do
     t.text "fotos"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "publicar"
   end
 
 end
