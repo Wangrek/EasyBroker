@@ -18,8 +18,8 @@
 ## Levantar proyecto
 
 * Correr el siguiente comando desde consola para levantar el scheduler:
-	whenever --update-crontab --set environment='development' 
-
+	whenever --update-crontab --set environment='development'
+	
 * Ver los procesos en ejecución:
 	crontab -l
 
@@ -34,9 +34,9 @@ NOTA: Se deja configurada la ejecución del proceso de actualización cada minut
 
 ## IMPORTANTE
 
-* El archivo XML se encuentra dentro de la raíz del proyecto por si se desean hacer cambios dentro de este.
-* Se utilizó la base de datos development.sqlite3 que viene cargada en rails.
 * Habrá que esperar un minuto para poder visualizar los datos, debido a que el proceso que lee el xml se corre cada minuto para efecto de las pruebas, y después  actualizar la página.
+* Se utilizó la base de datos development.sqlite3 que viene cargada en rails.
+* El archivo XML se encuentra dentro de la raíz del proyecto por si se desean hacer cambios dentro de este.
 
 
 ## Bajar proyecto
